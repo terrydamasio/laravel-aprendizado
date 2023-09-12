@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 class TesteController extends Controller
 {
     public function teste(int $p1, int $p2) {
-        //nome da variável do lado da view, e seu valor
         return view('site.teste', compact('p1', 'p2'));
     }
 }
