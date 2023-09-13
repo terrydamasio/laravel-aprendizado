@@ -8,24 +8,32 @@
 <body>
     <h3>Fornecedores</h3>
 
-    {{--Aqui fica os comentários--}}
-    @php 
-
-    @endphp
-
     @isset($fornecedores)
-        @php $i = 0 @endphp
-        @while(isset($fornecedores[$i]))
-            Fornecedor: {{ $fornecedores[$i]['nome'] }}
+        @forelse ($fornecedores as $indice => $fornecedor)
+            Iteração atual: {{ $loop->iteration}}
             <br>
-            Status: {{ $fornecedores[$i]['status'] }}
+            Fornecedor: {{ $fornecedor['nome'] }}
             <br>
-            CNPJ : {{ $fornecedores[$i]['cnpj'] ?? 'Dado não foi preenchido' }}
+            Status: {{ $fornecedor['status'] }}
             <br>
-            Telefone: ({{ $fornecedores[$i]['ddd'] ?? 'Dado não foi preenchido' }}) {{ $fornecedores[$i]['tel'] ?? 'Dado não foi preenchido' }}
-            @php $i++ @endphp
+            CNPJ : {{ $fornecedor['cnpj'] ?? 'Dado não foi preenchido' }}
+            <br>
+            Telefone: ({{ $fornecedor['ddd'] ?? 'Dado não foi preenchido' }}) {{ $fornecedor['tel'] ?? 'Dado não foi preenchido' }}
+            <br>
+            @if($loop->first)
+                Primeira iteração do loop
+            @endif
+            
+            @if($loop->last)
+                Ultima iteração do loop
+                <br>
+            @endif
             <hr>
-        @endwhile
+            Total de registros: {{ $loop->count }}
+            @empty
+                Não existem fornecedores cadastrados!
+        @endforelse
+        
     @endisset
 
 

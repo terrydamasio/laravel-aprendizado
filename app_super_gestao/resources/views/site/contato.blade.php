@@ -1,27 +1,55 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h3>Contato</h3>
+    @extends('site.layouts.basico')
 
-    <header>
-        <nav>
-            <ul>
-                <li>
-                    <a href="{{ route('site.index') }}">Principal</a>
-                </li>
-                <li>
-                    <a href="{{ route('site.sobrenos') }}">Sobre Nos</a>
-                </li>
-                <li>
-                    <a href="{{ route('site.contato') }}">Contato</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-</body>
-</html>
+    @section('titulo', $titulo)
+
+    @section('conteudo')
+
+        <div class="conteudo-pagina">
+            <div class="titulo-pagina">
+                <h1>Entre em contato conosco</h1>
+            </div>
+
+            <div class="informacao-pagina">
+                <div class="contato-principal">
+                    <form action="{{ route('site.contato') }}" method="post">
+                        @csrf
+                        <input type="text" placeholder="Nome" class="borda-preta" name="nome">
+                        <br>
+                        <input type="text" placeholder="Telefone" class="borda-preta" name="telefone">
+                        <br>
+                        <input type="text" placeholder="E-mail" class="borda-preta" name="email">
+                        <br>
+                        <select class="borda-preta" name="motivo">
+                            <option value="">Qual o motivo do contato?</option>
+                            <option value="">Dúvida</option>
+                            <option value="">Elogio</option>
+                            <option value="">Reclamação</option>
+                        </select>
+                        <br>
+                        <textarea class="borda-preta" name="mensagem" placeholder="Preencha aqui a sua mensagem"></textarea>
+                        <br>
+                        <button type="submit" class="borda-preta">ENVIAR</button>
+                    </form>
+                </div>
+            </div>  
+        </div>
+
+        <div class="rodape">
+            <div class="redes-sociais">
+                <h2>Redes sociais</h2>
+                <img src="{{ asset('assets/img/facebook.png') }}">
+                <img src="{{ asset('assets/img/linkedin.png') }}">
+                <img src="{{ asset('assets/img/youtube.png') }}">
+            </div>
+            <div class="area-contato">
+                <h2>Contato</h2>
+                <span>(11) 3333-4444</span>
+                <br>
+                <span>supergestao@dominio.com.br</span>
+            </div>
+            <div class="localizacao">
+                <h2>Localização</h2>
+                <img src="{{ asset('assets/img/mapa.png') }}">
+            </div>
+        </div>
+    @endsection
