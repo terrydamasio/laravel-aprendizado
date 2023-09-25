@@ -12,7 +12,7 @@ class SiteContatoSeeder extends Seeder
      */
     public function run()
     {
-        //
+        /*
         $contatos = new SiteContato();
 
         $contatos->nome = 'Sistema SG';
@@ -21,5 +21,9 @@ class SiteContatoSeeder extends Seeder
         $contatos->motivo = 1;
         $contatos->mensagem = 'Teste';
         $contatos->save();
+        */  
+
+        factory(SiteContato::class, 100)->create();
+
     }
 }

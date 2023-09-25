@@ -9,9 +9,9 @@
     <br>
     <select class="{{ $classe }}" name="motivo">
         <option value="">Qual o motivo do contato?</option>
-        <option value="">Dúvida</option>
-        <option value="">Elogio</option>
-        <option value="">Reclamação</option>
+        <option value="1">Dúvida</option>
+        <option value="2">Elogio</option>
+        <option value="3">Reclamação</option>
     </select>
     <br>
     <textarea class="{{ $classe }}" name="mensagem" placeholder="Preencha aqui a sua mensagem"></textarea>
